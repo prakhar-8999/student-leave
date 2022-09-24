@@ -1,0 +1,22 @@
+/* body {
+    background: rgb(137, 108, 240);
+    background: linear-gradient(66deg, rgba(137, 108, 240, 1) 0%, rgba(125, 204, 249, 1) 100%);
+} */
+
+.laptop-view {
+    display: block;
+}
+
+.mobile-view {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    .laptop-view {
+        display: none;
+    }
+
+    .mobile-view {
+        display: block;
+    }
+}
