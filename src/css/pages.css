@@ -1,6 +1,6 @@
 /* body {
-    background: rgb(137, 108, 240);
-    background: linear-gradient(66deg, rgba(137, 108, 240, 1) 0%, rgba(125, 204, 249, 1) 100%);
+    background: rgb(245, 255, 165);
+    background: linear-gradient(278deg, rgba(245, 255, 165, 1) 0%, rgba(215, 198, 37, 1) 100%);
 } */
 
 .laptop-view {
@@ -11,7 +11,14 @@
     display: none;
 }
 
-@media screen and (max-width: 700px) {
+
+.my-overflow {
+    padding: 24;
+    min-height: 800;
+}
+
+
+@media screen and (max-width: 500px) {
     .laptop-view {
         display: none;
     }
@@ -19,4 +26,21 @@
     .mobile-view {
         display: block;
     }
+}
+
+
+
+
+#components-layout-demo-responsive .logo {
+    height: 32px;
+    margin: 16px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.site-layout-sub-header-background {
+    background: #fff;
+}
+
+.site-layout-background {
+    background: #fff;
 }

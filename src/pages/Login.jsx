@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
-// import { Button, Form, Input, } from 'antd';
+import { message } from 'antd';
 import loginimage from '../images/loginimage.jpg'
 import navlogo from '../images/navlogo.png'
 // import Navbar from '../components/Navbar';
 import '../css/pages.css'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import { Link, useNavigate } from "react-router-dom";
+import Alert from '../components/Alert'
+import apihit from '../static/axios'
+// import Dashboard from './Dashboard'
+
 
 const Login = () => {
+
+    const navigate = useNavigate();
 
 
     const [lapusername, setlapusername] = useState('');
@@ -16,21 +23,80 @@ const Login = () => {
     const [mobpassword, setmobpassword] = useState('');
     // const [loading, setloading] = useState(false);
 
-    // const onFinish = (values) => {
-    //     console.log(values)
-    //     setloading(false)
-    // };
 
-    // const onFinishFailed = (errorInfo) => {
 
-    // };
+    const login = (method) => {
 
-    const laplogin = () => {
-        console.log(lapusername, lappassword);
+        if (method === 'laplogin') {
+            if (lapusername === '' || lapusername === undefined) {
+                Alert('Username is required');
+                // Swal.fire('username')
+            }
+            else if (lappassword === '' || lappassword === undefined) {
+                Alert('Password is required')
+            }
+            else {
+                console.log(lapusername, lappassword);
+                apihit.post('api/login', { 'username': lapusername, 'password': lappassword })
+                    .then(res => {
+                        console.log(res)
+                        message.success({
+                            content: 'Login Successfull !!!!',
+                            className: 'custom-class',
+                            style: {
+                                marginTop: '20vh',
+                            },
+                        });
+                        navigate('/Dashboard')
+
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        message.error({
+                            content: 'Wrong Credentials !!!!',
+                            className: 'custom-class',
+                            style: {
+                                marginTop: '20vh',
+                            },
+                        });
+                    })
+            }
+        }
+        else {
+            if (mobusername === '' || mobusername === undefined) {
+                Alert('Username is required');
+            }
+            else if (mobpassword === '' || mobpassword === undefined) {
+                Alert('Password is required')
+            }
+            else {
+                console.log(mobusername, mobpassword);
+                apihit.post('api/login', { 'username': mobusername, 'password': mobpassword })
+                    .then(res => {
+                        console.log(res)
+                        message.success({
+                            content: 'Login Successfull !!!!',
+                            className: 'custom-class',
+                            style: {
+                                marginTop: '20vh',
+                            },
+                        });
+                        navigate('/Dashboard')
+                    })
+                    .catch(err => {
+                        console.log(err)
+                        message.error({
+                            content: 'Wrong Credentials !!!!',
+                            className: 'custom-class',
+                            style: {
+                                marginTop: '20vh',
+                            },
+                        });
+                    })
+            }
+        }
     }
-    const moblogin = () => {
-        console.log(mobusername, mobpassword);
-    }
+
 
     const mobilepassword = () => {
         if (document.getElementById('mobpass').type === 'password') {
@@ -79,21 +145,21 @@ const Login = () => {
                                     <input onChange={e => setlappassword(e.target.value)} class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-gray-500" type="password" id='lappass' placeholder="Enter your password" />
                                 </div>
                                 <div class="mt-10">
-                                    <button onClick={laplogin} class="bg-gray-600 text-gray-100 p-4 w-full rounded-full tracking-wide
+                                    <button onClick={() => login('laplogin')} class="bg-gray-600 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-gray-800
                                 shadow-lg">
                                         Log In
                                     </button>
                                 </div>
                                 <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
-                                    Don't have an account ? <p class="cursor-pointer text-gray-600 hover:text-gray-800">Sign up</p>
+                                    Don't have an account ? <Link to='/Register' class="cursor-pointer text-gray-600 hover:text-gray-800">Sign up</Link>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="hidden lg:flex items-center justify-center bg-indigo-100 flex-1 h-screen">
-                        <div class="max-w-xs transform duration-200 hover:scale-110 cursor-pointer">
-                            <img src={loginimage} class="w-100" alt="" />
+                    <div class="hidden lg:flex items-center justify-center flex-1 h-screen">
+                        <div class="transform duration-200 hover:scale-110 cursor-pointer">
+                            <img src={loginimage} style={{ width: '20cm' }} alt="" />
                         </div>
                     </div>
                 </div>
@@ -104,6 +170,7 @@ const Login = () => {
 
 
             {/* Mobile-form */}
+
             <div class="mobile-view">
                 <div class="px-4 py-16 mt-36 mx-auto max-w-screen-xl sm:px-6 lg:px-8">
                     <div class="max-w-lg mx-auto">
@@ -181,7 +248,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <br /><br />
-                            <button onClick={moblogin} class="bg-yellow-400 text-gray-100 p-4 w-full rounded-full tracking-wide
+                            <button onClick={() => login('moblogin')} class="bg-yellow-400 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-yellow-600
                                 shadow-lg">
                                 Log In
@@ -189,7 +256,7 @@ const Login = () => {
                             <br /><br />
                             <p class="text-sm text-gray-500">
                                 No account?
-                                <p class="underline" style={{ float: 'right' }}>Sign up</p>
+                                <Link to='/Register' class="underline" style={{ float: 'right' }}>Sign up</Link>
                             </p>
                         </div>
                     </div>

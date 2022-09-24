@@ -1,36 +1,78 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import navlogo from '../images/navlogo.png'
 const Navbar = () => {
     return (
 
+        <nav class="bg-gray-100">
+            <div class="max-w-6xl mx-auto px-4">
+                <div class="flex justify-between">
 
-        <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-gray-100 text-sm py-4 dark:bg-gray-800">
-            <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
-                <div class="flex items-center justify-between">
-                    <div class="flex-none">
-                        <img style={{ width: '1.5cm' }} src={navlogo} alt="Logo" />
+                    <div class="flex space-x-4">
+                        <div>
+                            <a href="#" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+                                <img src={navlogo} style={{ width: '0.8cm' }} alt="logo" />
+                                <span class="font-bold">&nbsp;&nbsp;&nbsp;Student Leave Portal</span>
+                            </a>
+                        </div>
+
+                        {/* <div class="hidden md:flex items-center space-x-1">
+                            <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Features</a>
+                            <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">Pricing</a>
+                        </div> */}
                     </div>
-                    <div class="sm:hidden">
-                        <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-image-2" aria-controls="navbar-image-2" aria-label="Toggle navigation">
-                            <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                            </svg>
-                            <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="" class="py-5 px-3">Login</a>
+                        <a href="" class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Signup</a>
+                    </div>
+
+                    <div class="md:hidden flex items-center">
+                        <button class="mobile-menu-button">
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
                     </div>
+
                 </div>
-                <div id="navbar-image-2" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
-                    <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-                        <p class="text-xl text-blue-500" aria-current="page">Landing</p>
-                        {/* <a class="text-xl text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Account</a> */}
-                        {/* <a class="text-xl text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Work</a> */}
-                        {/* <a class="text-xl text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Blog</a> */}
-                    </div>
-                </div>
-            </nav>
-        </header>
+            </div>
+
+            {/* <div class="mobile-menu hidden md:hidden">
+                <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Features</a>
+                <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Pricing</a>
+            </div> */}
+        </nav>
+
+
+
+        // <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-gray-100 text-sm py-4 dark:bg-gray-800">
+        //     <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
+        //         <div class="flex items-center justify-between">
+        //             <div class="flex-none">
+        //                 <img style={{ width: '1.5cm' }} src={navlogo} alt="Logo" />
+        //             </div>
+        //             <div class="sm:hidden">
+        //                 <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-image-2" aria-controls="navbar-image-2" aria-label="Toggle navigation">
+        //                     <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        //                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        //                     </svg>
+        //                     <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        //                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+        //                     </svg>
+        //                 </button>
+        //             </div>
+        //         </div>
+        //         <div id="navbar-image-2" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
+        //             <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
+        //                 <Link to="/Register" class="text-xl text-blue-500" aria-current="page">Register</Link>
+        //                 {/* <a class="text-xl text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Account</a> */}
+        //                 {/* <a class="text-xl text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Work</a> */}
+        //                 {/* <a class="text-xl text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="#">Blog</a> */}
+        //             </div>
+        //         </div>
+        //     </nav>
+        // </header>
     )
 }
 
