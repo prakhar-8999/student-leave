@@ -10,10 +10,10 @@ const Navbar = () => {
 
                     <div class="flex space-x-4">
                         <div>
-                            <a href="#" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+                            <Link to="/" class="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
                                 <img src={navlogo} style={{ width: '0.8cm' }} alt="logo" />
                                 <span class="font-bold">&nbsp;&nbsp;&nbsp;Student Leave Portal</span>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* <div class="hidden md:flex items-center space-x-1">
@@ -23,8 +23,8 @@ const Navbar = () => {
                     </div>
 
                     <div class="hidden md:flex items-center space-x-1">
-                        <a href="" class="py-5 px-3">Login</a>
-                        <a href="" class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Signup</a>
+                        <Link to="/Login" class="py-2 px-3 mr-5 border-yellow-100 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 transition duration-300">Login</Link>
+                        <Link to="/Register" class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Signup</Link>
                     </div>
 
                     <div class="md:hidden flex items-center">

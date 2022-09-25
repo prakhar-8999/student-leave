@@ -120,7 +120,7 @@ const Login = () => {
                                 <div>
                                     <img src={navlogo} class="w-20" alt="student-logo" />
                                 </div>
-                                <div class="text-2xl text-gray-800 tracking-wide ml-2 font-semibold">Login Portal</div>
+                                <div class="text-2xl text-gray-800 tracking-wide ml-2 font-semibold">Student Leave Portal</div>
                             </div>
                         </div>
                         <div class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
@@ -154,6 +154,7 @@ const Login = () => {
                                 <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
                                     Don't have an account ? <Link to='/Register' class="cursor-pointer text-gray-600 hover:text-gray-800">Sign up</Link>
                                 </div>
+                                <br /><br />
                             </div>
                         </div>
                     </div>
