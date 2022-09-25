@@ -113,7 +113,7 @@ const Register = () => {
                             Send OTP
                         </Button> */}
                         <button type='submit' disabled={loading} class="block w-full bg-yellow-400 hover:bg-yellow-500 p-4 rounded text-white transition duration-300" onClick={sendotp}>
-                            Send OTP{loading ? <i className="fa fa-refresh fa-spin" style={{ marginRight: "5px" }} /> : null}
+                            Send OTP{loading ? <i className="fa fa-refresh fa-spin" style={{ marginLeft: "5px" }} /> : null}
                         </button>
                         <button id="invisible-btn" style={{ visibility: 'hidden' }} data-hs-overlay="#hs-vertically-centered-modal">modal open</button>
                     </div>

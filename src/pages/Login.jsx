@@ -21,12 +21,12 @@ const Login = () => {
     const [lappassword, setlappassword] = useState('');
     const [mobusername, setmobusername] = useState('');
     const [mobpassword, setmobpassword] = useState('');
-    // const [loading, setloading] = useState(false);
+    const [loading, setloading] = useState(false);
 
 
 
     const login = (method) => {
-
+        setloading(true)
         if (method === 'laplogin') {
             if (lapusername === '' || lapusername === undefined) {
                 Alert('Username is required');
@@ -47,6 +47,7 @@ const Login = () => {
                                 marginTop: '20vh',
                             },
                         });
+                        setloading(false)
                         navigate('/Dashboard')
 
                     })
@@ -59,6 +60,7 @@ const Login = () => {
                                 marginTop: '20vh',
                             },
                         });
+                        setloading(false)
                     })
             }
         }
@@ -81,6 +83,7 @@ const Login = () => {
                                 marginTop: '20vh',
                             },
                         });
+                        setloading(false)
                         navigate('/Dashboard')
                     })
                     .catch(err => {
@@ -92,6 +95,7 @@ const Login = () => {
                                 marginTop: '20vh',
                             },
                         });
+                        setloading(false)
                     })
             }
         }
@@ -145,10 +149,10 @@ const Login = () => {
                                     <input onChange={e => setlappassword(e.target.value)} class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-gray-500" type="password" id='lappass' placeholder="Enter your password" />
                                 </div>
                                 <div class="mt-10">
-                                    <button onClick={() => login('laplogin')} class="bg-gray-600 text-gray-100 p-4 w-full rounded-full tracking-wide
+                                    <button onClick={() => login('laplogin')} disabled={loading} class="bg-gray-600 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-gray-800
                                 shadow-lg">
-                                        Log In
+                                        Login {loading ? <i className="fa fa-refresh fa-spin" style={{ marginLeft: "5px" }} /> : null}
                                     </button>
                                 </div>
                                 <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
@@ -249,10 +253,11 @@ const Login = () => {
                                 </div>
                             </div>
                             <br /><br />
-                            <button onClick={() => login('moblogin')} class="bg-yellow-400 text-gray-100 p-4 w-full rounded-full tracking-wide
+                            <button onClick={() => login('moblogin')} disabled={loading} class="bg-yellow-400 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-yellow-600
                                 shadow-lg">
-                                Log In
+                                Login {loading ? <i className="fa fa-refresh fa-spin" style={{ marginLeft: "5px" }} /> : null}
+
                             </button>
                             <br /><br />
                             <p class="text-sm text-gray-500">
