@@ -173,7 +173,7 @@ const Login = () => {
             {/* Mobile-form */}
 
             <div class="mobile-view">
-                <div class="px-4 py-16 mt-36 mx-auto max-w-screen-xl sm:px-6 lg:px-8">
+                <div class="px-4 py-16 mt-12 mx-auto max-w-screen-xl sm:px-6 lg:px-8">
                     <div class="max-w-lg mx-auto">
                         <div class="cursor-pointer flex items-center">
                             <div>

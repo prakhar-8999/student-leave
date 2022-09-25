@@ -7,6 +7,7 @@ const Dashhome = () => {
     const [load, setload] = useState(true)
     const [role, setrole] = useState('')
     const [data, setdata] = useState({});
+    const [leavedata, setleavedata] = useState({})
     const dashhomehit = () => {
         apihit.get('api/details')
             .then(res => {
@@ -20,12 +21,24 @@ const Dashhome = () => {
             })
     }
 
+    const stdnumber = () => {
+        apihit.get('api/leavedetails')
+            .then(res => {
+                console.log(res)
+                setleavedata(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
     const show = () => {
         setrole(localStorage.getItem('role'))
     }
     useEffect(() => {
         show();
         dashhomehit()
+        stdnumber()
     }, [])
 
 
@@ -45,7 +58,7 @@ const Dashhome = () => {
                             <div class="flex items-start justify-between">
                                 <div class="flex flex-col space-y-2">
                                     <span class="text-gray-400">Total No. of Medical Leave</span>
-                                    <span class="text-lg font-semibold">100,221</span>
+                                    <span class="text-lg font-semibold">{leavedata.medical_leave}</span>
                                 </div>
                                 <div class="p-10 bg-gray-200 rounded-md"></div>
                             </div>
@@ -58,7 +71,7 @@ const Dashhome = () => {
                             <div class="flex items-start justify-between">
                                 <div class="flex flex-col space-y-2">
                                     <span class="text-gray-400">Total No. of Event Leave</span>
-                                    <span class="text-lg font-semibold">100,221</span>
+                                    <span class="text-lg font-semibold">{leavedata.event_leave}</span>
                                 </div>
                                 <div class="p-10 bg-gray-200 rounded-md"></div>
                             </div>
@@ -77,7 +90,7 @@ const Dashhome = () => {
                             <div class="flex items-start justify-between">
                                 <div class="flex flex-col space-y-2">
                                     <span class="text-gray-400">Total No. of Students</span>
-                                    <span class="text-lg font-semibold">100,221</span>
+                                    <span class="text-lg font-semibold">{leavedata.all}</span>
                                 </div>
                                 <div class="p-10 bg-gray-200 rounded-md"></div>
                             </div>
@@ -90,7 +103,7 @@ const Dashhome = () => {
                             <div class="flex items-start justify-between">
                                 <div class="flex flex-col space-y-2">
                                     <span class="text-gray-400">Students on Event Leave</span>
-                                    <span class="text-lg font-semibold">100,221</span>
+                                    <span class="text-lg font-semibold">{leavedata.event_leave}</span>
                                 </div>
                                 <div class="p-10 bg-gray-200 rounded-md"></div>
                             </div>
@@ -103,7 +116,7 @@ const Dashhome = () => {
                             <div class="flex items-start justify-between">
                                 <div class="flex flex-col space-y-2">
                                     <span class="text-gray-400">Students on Medical Leave</span>
-                                    <span class="text-lg font-semibold">100,221</span>
+                                    <span class="text-lg font-semibold">{leavedata.medical_leave}</span>
                                 </div>
                                 <div class="p-10 bg-gray-200 rounded-md"></div>
                             </div>

@@ -23,6 +23,15 @@ const Alert = (reason) => {
                 },
             });
         }
+        else if (reason === 403) {
+            message.error({
+                content: 'You are already on leave !!!!',
+                className: 'custom-class',
+                style: {
+                    marginTop: '1vh',
+                },
+            });
+        }
     }
 
     givealert();

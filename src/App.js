@@ -15,6 +15,11 @@ import Dashhome from './pages/Dashhome';
 import Register from './pages/Register';
 import Addfaculty from './pages/Addfaculty';
 import Addstudents from './pages/Addstudents';
+import Applyleave from './pages/Applyleave';
+import Preleaves from './pages/Preleaves';
+import Uploaddata from './pages/Uploaddata';
+import Action from './pages/Action';
+// import Upload from './pages/Upload';
 function App() {
   return (
             <Router>
@@ -27,22 +32,14 @@ function App() {
                       <Route path="" element={<Dashhome />}/>
                       <Route path="addfaculty" element={<Addfaculty />}/>
                       <Route path="addstudents" element={<Addstudents />}/>
+                      <Route path="applyleave" element={<Applyleave />}/>
+                      <Route path="prevleave" element={<Preleaves />} />
+                      <Route path="upload-data" element={<Uploaddata />}/>
+                      <Route path="action" element={<Action />}/>
+
+                      {/* <Route path="upload-data" element={<Upload />}/> */}
+
                     </Route>
-                    {/* <Route path="/AoDashboard" element={<AoDashboard />}>
-                        <Route path="" element={<Dashhome />}/>
-                        <Route path="Addhall" element={<Addhall />}/>
-                        <Route path="Booking" element={<Booking />}/>
-                        <Route path="Userprofile" element={<Userprofile />}/>
-                        <Route path="BookHall" element={<BookHall />}/>
-                        <Route path="Viewhalls" element={<Viewhalls/>}/>
-                        <Route path="Rejected" element={<Rejected/>}/>
-                        <Route path="Approved" element={<Approved/>}/>
-                        <Route path="Action" element={<Action/>}/>
-                        <Route path="Report" element={<Report/>}/>
-                        <Route path="Issues" element={<Issues/>}/>
-                        <Route path="Aostatus" element={<Aostatus/>}/>
-                        <Route path="previousbookings" element={<Previousbookings/>}/>
-                    </Route> */}
                 </Routes>
             </Router>
 
