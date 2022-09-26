@@ -19,6 +19,9 @@ import Applyleave from './pages/Applyleave';
 import Preleaves from './pages/Preleaves';
 import Uploaddata from './pages/Uploaddata';
 import Action from './pages/Action';
+import Event from './pages/Event';
+import Medical from './pages/Medical';
+import Documents from './pages/Documents';
 // import Upload from './pages/Upload';
 function App() {
   return (
@@ -36,9 +39,9 @@ function App() {
                       <Route path="prevleave" element={<Preleaves />} />
                       <Route path="upload-data" element={<Uploaddata />}/>
                       <Route path="action" element={<Action />}/>
-
-                      {/* <Route path="upload-data" element={<Upload />}/> */}
-
+                      <Route path="event-leave" element={<Event />}/>
+                      <Route path="medical-leave" element={<Medical />}/>
+                      <Route path="documents-required" element={<Documents />}/>
                     </Route>
                 </Routes>
             </Router>

@@ -17,6 +17,13 @@
     min-height: 800;
 }
 
+.side-panel {
+    display: block;
+}
+
+.side-panel-btn {
+    visibility: hidden;
+}
 
 @media screen and (max-width: 700px) {
     .laptop-view {
@@ -25,6 +32,14 @@
 
     .mobile-view {
         display: block;
+    }
+
+    .side-panel {
+        display: none;
+    }
+
+    .side-panel-btn {
+        visibility: visible;
     }
 }
 

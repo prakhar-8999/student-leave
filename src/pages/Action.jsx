@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 import apihit from '../static/axios'
 
 const Action = () => {
@@ -21,25 +22,59 @@ const Action = () => {
 
     const approve = (id) => {
         console.log(id)
-        apihit.put('api/pending', { id: id, action: 1 })
-            .then(res => {
-                console.log(res)
-                getaction()
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to change this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Approve'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                apihit.put('api/pending', { id: id, action: 1 })
+                    .then(res => {
+                        console.log(res)
+                        getaction()
+                        Swal.fire(
+                            'Success!',
+                            'You Approved this leave',
+                            'success'
+                        )
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            }
+        })
     }
     const reject = (id) => {
         console.log(id)
-        apihit.put('api/pending', { id: id, action: 0 })
-            .then(res => {
-                console.log(res)
-                getaction()
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to change this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Reject'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                apihit.put('api/pending', { id: id, action: 0 })
+                    .then(res => {
+                        console.log(res)
+                        getaction()
+                        Swal.fire(
+                            'Success!',
+                            'You Rejected this leave',
+                            'success'
+                        )
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+            }
+        })
     }
 
     return (
@@ -64,6 +99,9 @@ const Action = () => {
                         </th>
                         <th scope="col" className="py-3 px-6">
                             Year
+                        </th>
+                        <th scope="col" className="py-3 px-6">
+                            Leave Status
                         </th>
                         <th scope="col" className="py-3 px-6">
                             Description
@@ -94,6 +132,9 @@ const Action = () => {
                             </td>
                             <td className="py-4 px-6">
                                 {ac.sec__year}
+                            </td>
+                            <td className="py-4 px-6">
+                                <span style={{ color: 'red' }}>Pending</span>
                             </td>
                             <td className="py-4 px-6">
                                 {ac.description}
