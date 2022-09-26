@@ -9,6 +9,9 @@ import '../css/pages.css'
 
 const Register = () => {
 
+
+    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
     const [loading, setloading] = useState(false);
     const [resloading, setresloading] = useState(false)
     const [inputs, setInputs] = useState({});
@@ -20,20 +23,37 @@ const Register = () => {
         setInputs(values => ({ ...values, [name]: value }))
     }
 
-    const sendotp = () => {
-        // event.preventDefault();
+    const sendotp = (event) => {
+        event.preventDefault();
         setloading(true)
-        // document.getElementById('invisible-btn').click()
         console.log(inputs);
-        apihit.post('api/register', inputs)
-            .then(res => {
-                console.log(res)
-                setloading(false)
-                document.getElementById('invisible-btn').click()
-            })
-            .catch(err => {
-                console.log(err)
-            })
+
+        // document.getElementById('invisible-btn').click()
+        if (inputs.fname === '' || inputs.fname === undefined || inputs.lname === '' || inputs.lname === undefined || inputs.email === '' || inputs.email === undefined || inputs.username === '' || inputs.username === undefined || inputs.password === '' || inputs.password === undefined) {
+            Swal.fire(
+                'EMPTY FIELDS',
+                'All fields are required',
+                'question'
+            )
+            setloading(false)
+        }
+        else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputs.email) === false) {
+            console.log('khfskdf')
+            Swal.fire('Invalid Email Address !!!!')
+            setloading(false)
+        }
+        else {
+            apihit.post('api/register', inputs)
+                .then(res => {
+                    console.log(res)
+                    setloading(false)
+                    document.getElementById('invisible-btn').click()
+                })
+                .catch(err => {
+                    console.log(err)
+                    setloading(false)
+                })
+        }
 
 
     }
@@ -51,6 +71,7 @@ const Register = () => {
                 setresloading(false)
                 document.getElementById('modal-close').click()
                 Swal.fire('Registration Successfull !!!!')
+                setInputs({})
             })
             .catch(err => {
                 console.log(err)
@@ -72,7 +93,7 @@ const Register = () => {
                     <h2 class="text-3xl font-bold mb-10 text-yellow-600">Student Registration</h2>
 
                     <div class="space-y-5">
-
+                        {/* <form name='reg'> */}
                         <div class="grid gap-6 mb-6 md:grid-cols-2">
                             <div>
                                 <label class="block mb-1 font-bold text-gray-500">First Name</label>
@@ -81,6 +102,28 @@ const Register = () => {
                             <div>
                                 <label class="block mb-1 font-bold text-gray-500">Last Name</label>
                                 <input type="text" name="lname" value={inputs.lname || ""} onChange={handleChange} class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-yellow-500" required />
+                            </div>
+                        </div>
+
+                        <div class="grid gap-6 mb-6 md:grid-cols-2">
+                            <div>
+                                <label class="block mb-1 font-bold text-gray-500">Year</label>
+                                <select name="year" value={inputs.year || ""} style={{ backgroundColor: 'white' }} onChange={handleChange} class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-yellow-500">
+                                    <option value="" disabled>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block mb-1 font-bold text-gray-500">Section</label>
+                                <select name="sec" value={inputs.sec || ""} style={{ backgroundColor: 'white' }} onChange={handleChange} class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-yellow-500">
+                                    <option value="" disabled>Select</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
                             </div>
                         </div>
 
@@ -103,11 +146,12 @@ const Register = () => {
                             <label class="block mb-1 font-bold text-gray-500">Password</label>
                             <input type="password" name="password" value={inputs.password || ""} onChange={handleChange} class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-yellow-500" required />
                         </div>
+                        <br />
 
-                        <div class="flex items-center">
-                            <input type="checkbox" id="agree" />
+                        {/* <div class="flex items-center">
+                            <input type="checkbox" name="agree" />
                             <label for="agree" class="ml-2 text-gray-700 text-sm">I agree to the terms and privacy.</label>
-                        </div>
+                        </div> */}
 
                         {/* <Button type="submit" disabled={loading} loading={loading} style={{ width: '100%' }} class="block w-100 bg-yellow-400 hover:bg-yellow-500 p-4 rounded text-white transition duration-300">
                             Send OTP
@@ -116,6 +160,7 @@ const Register = () => {
                             Send OTP{loading ? <i className="fa fa-refresh fa-spin" style={{ marginLeft: "5px" }} /> : null}
                         </button>
                         <button id="invisible-btn" style={{ visibility: 'hidden' }} data-hs-overlay="#hs-vertically-centered-modal">modal open</button>
+                        {/* </form> */}
                     </div>
                     <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
                         Already have an account ? <Link to='/Login' class="cursor-pointer text-gray-600 hover:text-gray-800">Sign in</Link>

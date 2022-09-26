@@ -9,7 +9,7 @@ import apihit from '../static/axios';
 import Alert from '../components/Alert';
 import { useNavigate } from "react-router-dom";
 import Dashloader from '../components/Dashloader';
-
+import user from '../images/default.png'
 
 const { Header, Content, Footer, Sider } = Layout;
 const height = window.innerHeight - 150
@@ -31,6 +31,7 @@ const Dashboard = () => {
             })
             .catch(err => {
                 console.log(err)
+                Alert(err.response.status)
             })
     }
 
@@ -117,7 +118,7 @@ const Dashboard = () => {
 
                             {leftpannel.map((any, index) => (
                                 <Link to={any.url} key={index}>
-                                    <Menu theme="dark" mode="inline" items={[{ key: index, icon: <UploadOutlined />, label: any.name, }]} />
+                                    <Menu theme="dark" items={[{ key: index, icon: <UploadOutlined />, label: any.name, }]} />
                                 </Link>
 
                             ))}
@@ -131,7 +132,7 @@ const Dashboard = () => {
                                 <button class='ml-5 side-panel-btn' style={{ display: 'inline-flex' }} data-hs-overlay="#hs-overlay-body-scrolling"><i class="fa-solid fa-bars fa-xl"></i></button>
                                 <Dropdown overlay={menu}>
                                     <button onClick={(e) => e.preventDefault()} style={{ float: 'right', marginRight: '10px', zIndex: '2', marginTop: '0.2cm' }}>
-                                        <img style={{ float: 'right', width: '1cm', height: '1cm', marginTop: '10px', marginRight: '10px' }} src={navlogo} alt="use8g76t" />
+                                        <img style={{ float: 'right', width: '1cm', height: '1cm', marginTop: '10px', marginRight: '10px' }} src={user} alt="use8g76t" />
                                     </button>
                                 </Dropdown>
                             </div>

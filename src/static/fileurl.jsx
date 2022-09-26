@@ -1,2 +1,2 @@
-const fileurl = 'https://b4eb-125-21-249-98.in.ngrok.io/media/'
+const fileurl = 'https://10.42.0.102:8000/media/'
 export default fileurl

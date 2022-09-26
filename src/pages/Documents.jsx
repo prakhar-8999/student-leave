@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Alert from '../components/Alert'
 import Dashloader from '../components/Dashloader'
 import apihit from '../static/axios'
 import fileurl from '../static/fileurl'
@@ -16,6 +17,7 @@ const Documents = () => {
             })
             .catch(err => {
                 console.log(err)
+                Alert(err.response.status)
             })
     }
 

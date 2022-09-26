@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Alert from '../components/Alert'
 import Dashloader from '../components/Dashloader'
 import apihit from '../static/axios'
 
@@ -7,6 +8,8 @@ const Preleaves = () => {
     const navigate = useNavigate();
     const [data, setdata] = useState([])
     const [loader, setloader] = useState(true)
+
+
     const prel = () => {
         apihit.get('api/applyleave')
             .then(res => {
@@ -16,6 +19,7 @@ const Preleaves = () => {
             })
             .catch(err => {
                 console.log(err)
+                Alert(err.response.status)
             })
     }
 

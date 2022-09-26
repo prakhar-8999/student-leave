@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
+import Alert from '../components/Alert'
 import apihit from '../static/axios'
 
 const Action = () => {
@@ -14,6 +15,7 @@ const Action = () => {
             })
             .catch(err => {
                 console.log(err)
+                Alert(err.response.status)
             })
     }
     useEffect(() => {
