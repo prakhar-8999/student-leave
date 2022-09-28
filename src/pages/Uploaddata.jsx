@@ -30,9 +30,11 @@ const Uploaddata = () => {
                 console.log(res)
                 setrank(null)
                 message.success('upload successfully.');
+                setUploading(false);
             })
             .catch(err => {
                 message.error('upload failed.');
+                setUploading(false);
             })
             .finally(() => {
                 setUploading(false);

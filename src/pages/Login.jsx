@@ -16,7 +16,7 @@ import Homeloader from '../components/Homeloader';
 const Login = () => {
 
     const navigate = useNavigate();
-    const [loader, setloader] = useState(true)
+    const [loader, setloader] = useState(false)
     const dash = () => {
         apihit.get('api/dashboard')
             .then(res => {
@@ -62,7 +62,7 @@ const Login = () => {
                             content: 'Login Successfull !!!!',
                             className: 'custom-class',
                             style: {
-                                marginTop: '20vh',
+                                marginTop: '2cm',
                             },
                         });
                         setloading(false)
@@ -75,7 +75,7 @@ const Login = () => {
                             content: 'Wrong Credentials !!!!',
                             className: 'custom-class',
                             style: {
-                                marginTop: '20vh',
+                                marginTop: '2cm',
                             },
                         });
                         setloading(false)
@@ -85,9 +85,11 @@ const Login = () => {
         else {
             if (mobusername === '' || mobusername === undefined) {
                 Alert('Username is required');
+                setloading(false)
             }
             else if (mobpassword === '' || mobpassword === undefined) {
                 Alert('Password is required')
+                setloading(false)
             }
             else {
                 console.log(mobusername, mobpassword);

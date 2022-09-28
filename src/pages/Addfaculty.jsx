@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Button, Form, Input, InputNumber } from 'antd';
 import { Select } from 'antd';
 import apihit from '../static/axios';
+import Swal from 'sweetalert2';
+import Alert from '../components/Alert';
 const { Option } = Select;
 const layout = {
     labelCol: {
@@ -37,10 +39,18 @@ const Addfaculty = () => {
                 console.log(res)
                 setbtnload(false)
                 form.resetFields()
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Faculty Added Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
             .catch(err => {
                 console.log(err)
                 setbtnload(false)
+                Alert(err.response.status);
             })
     };
 

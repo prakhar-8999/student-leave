@@ -48,6 +48,14 @@ const Alert = (reason) => {
                 }
             })
         }
+        else if (reason === 500) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Server Error',
+                text: 'Server is currently Unavailable !!!!',
+                // footer: '<a href="">Why do I have this issue?</a>'
+            })
+        }
     }
 
     givealert();

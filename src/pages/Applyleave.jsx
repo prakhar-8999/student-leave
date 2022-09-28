@@ -3,6 +3,7 @@ import { Button, DatePicker, Form, Select } from 'antd';
 import { Input } from 'antd';
 import apihit from '../static/axios';
 import Alert from '../components/Alert';
+import Swal from 'sweetalert2';
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -72,6 +73,13 @@ const Applyleave = () => {
                 console.log(res)
                 form.resetFields()
                 setloading(false)
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Application Submitted Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             })
             .catch(err => {
                 console.log(err)
