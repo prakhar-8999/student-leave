@@ -31,6 +31,7 @@ const Dashboard = () => {
             })
             .catch(err => {
                 console.log(err)
+                setdashload(false)
                 Alert(err.response.status)
             })
     }
