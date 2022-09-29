@@ -143,7 +143,7 @@ const Dashboard = () => {
                                 margin: '24px 16px 0',
                             }}
                         >
-                            <div className="site-layout-background overflow" style={{ padding: 24, minHeight: height, overflowY: 'scroll' }}   >
+                            <div className="site-layout-background overflow" style={{ padding: 24, minHeight: height, overflowY: 'scroll' }}>
                                 <Outlet />
                             </div>
                         </Content>
@@ -183,7 +183,6 @@ const Dashboard = () => {
                             <Link to={any.url} key={index}>
                                 <button style={{ width: '100%' }} data-hs-overlay="#hs-overlay-body-scrolling">
                                     <ul class="space-y-1.5">
-
                                         <li>
                                             <a class="flex items-center gap-x-3.5 py-2 px-2.5 bg-gray-100 text-sm text-slate-700 rounded-md hover:bg-gray-100 dark:bg-gray-900 dark:text-white" href="javascript:;">
                                                 <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -195,11 +194,8 @@ const Dashboard = () => {
                                         </li>
                                     </ul>
                                 </button><br />
-
                             </Link>
-
                         ))}
-
                     </div>
                 </div>
 

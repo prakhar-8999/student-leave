@@ -44,7 +44,7 @@ const Addfaculty = () => {
                     icon: 'success',
                     title: 'Faculty Added Successfully',
                     showConfirmButton: false,
-                    timer: 1500
+                    timer: 1200
                 })
             })
             .catch(err => {
