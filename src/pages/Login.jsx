@@ -16,7 +16,7 @@ import Homeloader from '../components/Homeloader';
 const Login = () => {
 
     const navigate = useNavigate();
-    const [loader, setloader] = useState(false)
+    const [loader, setloader] = useState(true)
     const dash = () => {
         apihit.get('api/dashboard')
             .then(res => {
