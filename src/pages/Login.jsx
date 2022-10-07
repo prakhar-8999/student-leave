@@ -187,7 +187,7 @@ const Login = () => {
                         </div>
                         <div class="hidden lg:flex items-center justify-center flex-1 h-screen">
                             <div class="transform duration-200 hover:scale-110 cursor-pointer">
-                                <img src={loginimage} style={{ width: '25cm', marginTop: '-4cm' }} alt="" />
+                                <img src={loginimage} style={{ width: '25cm', marginTop: '-4cm' }} alt="loginimage" />
                             </div>
                         </div>
                     </div>
