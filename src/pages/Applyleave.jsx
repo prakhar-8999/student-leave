@@ -4,6 +4,7 @@ import { Input } from 'antd';
 import apihit from '../static/axios';
 import Alert from '../components/Alert';
 import Swal from 'sweetalert2';
+import moment from 'moment';
 const { TextArea } = Input;
 const { RangePicker } = DatePicker;
 const { Option } = Select;
@@ -45,23 +46,11 @@ const Applyleave = () => {
     const [form] = Form.useForm();
     const onFinish = (fieldsValue) => {
         setloading(true)
-        // Should format date value before submit.
         const rangeValue = fieldsValue['range-picker'];
         console.log(rangeValue)
         const type = fieldsValue['type']
         const des = fieldsValue['des']
-        // const rangeTimeValue = fieldsValue['range-time-picker'];
         const values = {
-            // ...fieldsValue,
-            // 'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
-            // 'date-time-picker': fieldsValue['date-time-picker'].format('YYYY-MM-DD HH:mm:ss'),
-            // 'month-picker': fieldsValue['month-picker'].format('YYYY-MM'),
-            // 'range-picker': [rangeValue[0].format('YYYY-MM-DD'), rangeValue[1].format('YYYY-MM-DD')],
-            // 'range-time-picker': [
-            //     rangeTimeValue[0].format('YYYY-MM-DD HH:mm:ss'),
-            //     rangeTimeValue[1].format('YYYY-MM-DD HH:mm:ss'),
-            // ],
-            // 'time-picker': fieldsValue['time-picker'].format('HH:mm:ss'),
             'leave_from': rangeValue[0]._d,
             'leave_to': rangeValue[1]._d,
             'leave_type': type,
@@ -90,13 +79,11 @@ const Applyleave = () => {
 
     return (
         <div>
-            <h1>Apply for Leave</h1>
+            <h1 class="text-2xl font-semibold">Apply for Leave</h1>
             <Form name="time_related_controls" form={form} {...formItemLayout} onFinish={onFinish}>
 
-
-
                 <Form.Item name="range-picker" label="Leave Duration" {...rangeConfig}>
-                    <RangePicker format="YYYY-MM-DD" style={{ width: '100%' }} />
+                    <RangePicker disabledDate={(current) => current.isBefore(moment().subtract(1, "day"))} format="YYYY-MM-DD" style={{ width: '100%' }} />
                 </Form.Item>
 
                 <Form.Item

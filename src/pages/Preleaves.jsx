@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Alert from '../components/Alert'
 import Dashloader from '../components/Dashloader'
 import apihit from '../static/axios'
+import { Button } from 'antd';
 
 const Preleaves = () => {
     const navigate = useNavigate();
@@ -57,7 +58,10 @@ const Preleaves = () => {
                         <div>
                             {/* <span class="inzline-block px-2 text-sm text-white bg-green-300 rounded">14%</span> */}
                             <span>Session 2022</span>
-                            <button style={{ float: 'right' }} disabled={val.leave_status === 'Leave Completed' || val.leave_status === 'Pending'} onClick={() => endleave(val.id, val.leave_type)} type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">{val.leave_status === 'Leave Completed' ? 'Leave Completed' : 'End Leave'}</button>
+                            <button style={{ float: 'right', display: val.leave_status !== 'Approved' ? 'none' : 'block' }} disabled={val.leave_status === 'Leave Completed' || val.leave_status === 'Pending' || val.leave_status === 'Rejected'} onClick={() => endleave(val.id, val.leave_type)} type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">{val.leave_status === 'Leave Completed' ? 'Leave Completed' : 'End Leave'}</button>
+                            <Button style={{ float: 'right', display: val.leave_status === 'Approved' ? 'none' : 'block' }} disabled type="primary" size="large">
+                                End Leave
+                            </Button>
                         </div>
                         <br />
                     </div>

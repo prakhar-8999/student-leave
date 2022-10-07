@@ -29,7 +29,7 @@ const Register = () => {
         console.log(inputs);
 
         // document.getElementById('invisible-btn').click()
-        if (inputs.fname === '' || inputs.fname === undefined || inputs.lname === '' || inputs.lname === undefined || inputs.email === '' || inputs.email === undefined || inputs.username === '' || inputs.username === undefined || inputs.password === '' || inputs.password === undefined) {
+        if (inputs.fname === '' || inputs.fname === undefined || inputs.lname === '' || inputs.lname === undefined || inputs.email === '' || inputs.email === undefined || inputs.username === '' || inputs.username === undefined || inputs.year === '' || inputs.year === undefined || inputs.sec === '' || inputs.sec === undefined || inputs.password === '' || inputs.password === undefined) {
             Swal.fire(
                 'EMPTY FIELDS',
                 'All fields are required',
