@@ -17,7 +17,18 @@ const Login = () => {
 
     const navigate = useNavigate();
     const [loader, setloader] = useState(true)
-    const dash = () => {
+    // const dash = () => {
+    //     apihit.get('api/dashboard')
+    //         .then(res => {
+    //             navigate("/Dashboard")
+    //             setloader(false)
+    //         })
+    //         .catch(err => {
+    //             setloader(false)
+    //         })
+    // }
+
+    useEffect(() => {
         apihit.get('api/dashboard')
             .then(res => {
                 navigate("/Dashboard")
@@ -26,10 +37,6 @@ const Login = () => {
             .catch(err => {
                 setloader(false)
             })
-    }
-
-    useEffect(() => {
-        dash()
     }, [])
 
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Input, InputNumber } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { Select } from 'antd';
 import apihit from '../static/axios';
 import Swal from 'sweetalert2';

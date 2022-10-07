@@ -10,7 +10,6 @@ import '../css/pages.css'
 const Register = () => {
 
 
-    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     const [loading, setloading] = useState(false);
     const [resloading, setresloading] = useState(false)
