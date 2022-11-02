@@ -103,6 +103,9 @@ const Action = () => {
                             Year
                         </th>
                         <th scope="col" className="py-3 px-6">
+                            Leave Type
+                        </th>
+                        <th scope="col" className="py-3 px-6">
                             Leave Status
                         </th>
                         <th scope="col" className="py-3 px-6">
@@ -134,6 +137,9 @@ const Action = () => {
                             </td>
                             <td className="py-4 px-6">
                                 {ac.sec__year}
+                            </td>
+                            <td className="py-4 px-6">
+                                <span style={{ color: ac.leave_type === 'event' ? 'blue' : 'orange' }}>{ac.leave_type}</span>
                             </td>
                             <td className="py-4 px-6">
                                 <span style={{ color: 'red' }}>Pending</span>

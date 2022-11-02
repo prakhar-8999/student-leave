@@ -1,2 +1,2 @@
-const fileurl = 'https://10.21.81.180:7007/media/'
+const fileurl = 'https://10.21.82.28:8000/media/'
 export default fileurl
